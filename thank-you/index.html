@@ -125,7 +125,8 @@ footer .notaff{margin-top:10px;font-weight:600;color:var(--muted)}
 
 
 /* =====================================================================
-   Delivery page v0.8: the desktop-first sibling of the sales page.
+   Delivery page v0.9: the desktop-first sibling of the sales page.
+   v0.9: the hero shows the Account Builder as a workflow canvas, one Download button.
    Same tokens, components and class vocabulary as landing.html
    (stage, glass, grad, promptcard/pc-bar/dots, steps strip, tiles).
    Everything below overrides the shared aab.css rules above.
@@ -161,7 +162,7 @@ h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;b
 .works span{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--on-dark);border:1px solid var(--glass-line);background:var(--glass);border-radius:999px;padding:6px 12px}
 .works span i{width:7px;height:7px;border-radius:50%;background:var(--grad-dark)}
 
-/* ---------- the Account Builder as a code window ---------- */
+/* ---------- code windows (the three packs) + the one button ---------- */
 .promptcard{position:relative;background:#14112a;color:var(--on-dark);border-radius:20px;box-shadow:0 34px 90px rgba(8,4,30,.55),0 0 0 1px rgba(255,255,255,.10) inset;overflow:hidden}
 .promptcard::before{content:"";position:absolute;inset:-1px;border-radius:21px;padding:1px;background:linear-gradient(135deg,rgba(139,155,255,.9),rgba(255,143,210,.6) 60%,rgba(255,255,255,0));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:2}
 .pc-bar{display:flex;flex-wrap:nowrap;align-items:center;gap:10px;line-height:1;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
@@ -172,16 +173,65 @@ h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;b
 .pc-tag{flex:none;line-height:1.2;margin-left:auto;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--on-dark);border:1px solid var(--glass-line);background:var(--glass);border-radius:999px;padding:4px 10px;white-space:nowrap}
 .promptcard textarea.promptbox{display:block;width:100%;height:340px;min-height:240px;border:0;border-radius:0;padding:18px 20px;background:transparent;color:#e9e5ff;font-family:var(--mono);font-size:13px;line-height:1.65;resize:vertical;outline:none}
 .promptcard textarea.promptbox:focus{box-shadow:0 0 0 2px rgba(139,155,255,.35) inset}
-.pc-actions{display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:16px 18px 18px;border-top:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03)}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--grad);color:var(--white);font-family:var(--head);font-weight:700;font-size:19px;border:0;border-radius:14px;padding:18px 22px;min-height:62px;cursor:pointer;text-decoration:none;text-align:center;line-height:1.2;box-shadow:0 14px 32px rgba(124,58,237,.34);transition:transform .15s ease,box-shadow .15s ease}
 .btn:hover{transform:translateY(-1px);box-shadow:0 18px 38px rgba(124,58,237,.42)}
 .btn.done{background:linear-gradient(100deg,#059669,#10b981 60%,#2fe39a);box-shadow:0 14px 32px rgba(16,185,129,.34)}
 .btn.done::before{content:"";width:18px;height:18px;flex:none;border-radius:50%;background:rgba(255,255,255,.22) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12.5l4.5 4.5L19 7.5'/></svg>") center/12px no-repeat}
-.pc-actions .dl{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 16px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);border-radius:12px;color:#fff;font-weight:700;font-size:15px;text-decoration:none;transition:background .15s ease}
-.pc-actions .dl:hover{background:rgba(255,255,255,.18);color:#fff}
-.pc-actions .copymsg{margin:0;font-size:15px;background:rgba(47,227,154,.12);color:#c9ffe8;border:1px solid rgba(47,227,154,.3);border-radius:12px;padding:11px 14px;text-align:center}
-.pc-actions .copymsg b{color:var(--white)}
-.pc-actions .copymsg.warn{background:rgba(255,209,102,.12);color:#ffe9b3;border-color:rgba(255,209,102,.35)}
+
+
+/* ---------- v0.9: the Account Builder as a product visual (the workflow canvas) ---------- */
+.hero-art{display:flex;flex-direction:column;gap:14px}
+.artwrap{position:relative;width:100%;max-width:560px;margin:0 auto}
+.artwrap .art{transform-origin:top left}
+.vh{position:absolute!important;width:1px!important;height:1px!important;min-height:0!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0!important;opacity:.01}
+.hero-art .btn{margin-top:4px}
+.hero-art .dlnote{margin:0;text-align:center;font-size:14px;color:var(--on-dark-muted);line-height:1.5}
+.hero-art .copymsg{margin:0;font-size:15px;background:rgba(47,227,154,.12);color:#c9ffe8;border:1px solid rgba(47,227,154,.3);border-radius:12px;padding:11px 14px;text-align:center}
+.hero-art .copymsg b{color:var(--white)}
+.hero-art .copymsg.warn{background:rgba(255,209,102,.12);color:#ffe9b3;border-color:rgba(255,209,102,.35)}
+.art{position:relative;width:560px;height:520px;border-radius:22px;overflow:hidden;background:#14112a;color:var(--on-dark);box-shadow:0 34px 90px rgba(8,4,30,.6),0 0 0 1px rgba(255,255,255,.08) inset;font-family:var(--body);isolation:isolate;font-size:13px;line-height:1.4}
+.art::before{content:"";position:absolute;inset:-1px;border-radius:23px;padding:1px;background:linear-gradient(135deg,rgba(139,155,255,.9),rgba(255,143,210,.6) 60%,rgba(255,255,255,0));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:5}
+.art .glow{position:absolute;border-radius:50%;pointer-events:none;z-index:0;filter:blur(2px)}
+.art .glow.a{width:520px;height:520px;right:-200px;top:-260px;background:radial-gradient(closest-side,rgba(124,58,237,.5),rgba(124,58,237,0))}
+.art .glow.b{width:420px;height:420px;left:-200px;bottom:-220px;background:radial-gradient(closest-side,rgba(219,39,119,.32),rgba(219,39,119,0))}
+.art .agrid{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.11) 1px,transparent 1px);background-size:20px 20px;z-index:0;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),rgba(0,0,0,.35));mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),rgba(0,0,0,.35))}
+.art .wm{position:absolute;right:18px;bottom:14px;font-family:var(--head);font-weight:800;font-size:12px;letter-spacing:-.02em;color:rgba(255,255,255,.72);z-index:4}
+.art .wm b{background:linear-gradient(90deg,#8b7bff,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.art .pname{position:absolute;left:20px;bottom:14px;font-family:var(--head);font-weight:700;font-size:11.5px;letter-spacing:.02em;color:rgba(255,255,255,.62);z-index:4}
+.art .bar{position:relative;z-index:3;display:flex;align-items:center;gap:10px;height:46px;padding:0 16px;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
+.art .bar .t{font-family:var(--head);font-weight:700;font-size:13px;color:#fff;letter-spacing:-.01em;line-height:1.2}
+.art .bar .t small{display:block;font-family:var(--body);font-weight:500;font-size:10.5px;color:var(--on-dark-muted);letter-spacing:.02em;margin-top:1px}
+.art .bar .sp{margin-left:auto;display:flex;gap:8px;align-items:center}
+.vbadge{display:inline-flex;align-items:center;gap:6px;font-family:var(--head);font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--grad);border-radius:999px;padding:5px 10px;box-shadow:0 6px 16px rgba(124,58,237,.4)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--on-dark);border:1px solid var(--glass-line);background:rgba(255,255,255,.07);border-radius:999px;padding:4px 9px;white-space:nowrap;backdrop-filter:blur(6px);line-height:1.2}
+.chip.ok{color:#c9ffe8;border-color:rgba(47,227,154,.35);background:rgba(47,227,154,.12)}
+.chip.ok::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 0 3px rgba(47,227,154,.2)}
+.chip.run{color:#ffe9b3;border-color:rgba(255,209,102,.4);background:rgba(255,209,102,.12)}
+.chip.run::before{content:"";width:6px;height:6px;border-radius:50%;background:#ffd166;animation:pulse 1.4s ease-in-out infinite}
+.chip.wait{color:#b9b2d6;border-color:rgba(255,255,255,.14)}
+.chip.wait::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,209,102,.5)}50%{box-shadow:0 0 0 5px rgba(255,209,102,0)}}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.art .wire{position:absolute;inset:0;z-index:1;width:100%;height:100%}
+.art .wire path{fill:none;stroke:url(#wg);stroke-width:2;stroke-linecap:round}
+.art .wire path.live{stroke-dasharray:6 8;animation:dash 1.1s linear infinite}
+.art .wire circle{fill:#14112a;stroke:#8b9bff;stroke-width:2}
+.node{position:absolute;z-index:2;display:flex;align-items:center;gap:11px;width:254px;height:62px;padding:0 12px 0 10px;border-radius:15px;background:rgba(30,24,60,.9);border:1px solid rgba(255,255,255,.14);box-shadow:0 14px 34px rgba(5,2,20,.5),0 0 0 1px rgba(0,0,0,.2);backdrop-filter:blur(8px)}
+.node .ico{flex:none;width:36px;height:36px;border-radius:11px;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(124,58,237,.35)}
+.node .ico.alt{background:linear-gradient(135deg,#ff8fd2,#ff6b6b)}
+.node .ico.hl{background:linear-gradient(135deg,#1f9bff,#4fd1ff)}
+.node .ico.ok{background:linear-gradient(135deg,#059669,#2fe39a)}
+.node .tx{min-width:0;flex:1}
+.node .tx b{display:block;font-family:var(--head);font-weight:700;font-size:13px;color:#fff;letter-spacing:-.01em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.node .tx small{display:block;font-size:10.5px;color:var(--on-dark-muted);line-height:1.3;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.node .chip{position:absolute;right:10px;top:-10px;font-size:9.5px;padding:2px 7px;box-shadow:0 6px 14px rgba(5,2,20,.5)}
+.node.trig{border-color:rgba(255,143,210,.5);background:linear-gradient(135deg,rgba(124,58,237,.42),rgba(219,39,119,.3));box-shadow:0 14px 34px rgba(124,58,237,.35)}
+.node.trig::after{content:"TRIGGER";position:absolute;top:-9px;left:12px;font-family:var(--head);font-weight:800;font-size:9px;letter-spacing:.12em;color:#fff;background:linear-gradient(90deg,#db2777,#ff8fd2);border-radius:999px;padding:2px 7px}
+.node.pk{height:auto;padding:9px 10px;flex-wrap:wrap;gap:6px;border-style:dashed;border-color:rgba(255,255,255,.22);background:rgba(20,16,42,.7)}
+.node.pk .chip{position:static;font-size:10.5px;padding:4px 9px;box-shadow:none}
+.node.pk .lab{width:100%;font-family:var(--head);font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b9b2d6}
+.node.file{border-color:rgba(47,227,154,.4);background:linear-gradient(135deg,rgba(47,227,154,.16),rgba(30,24,60,.9))}
+@media (prefers-reduced-motion:reduce){.art .wire path.live,.chip.run::before{animation:none}}
 
 /* ---------- how to start: the 1/2/3 strip ---------- */
 .howto{list-style:none;display:grid;gap:12px;padding:0 0 46px;position:relative}
@@ -284,14 +334,72 @@ footer .notaff{font-weight:600;color:var(--muted);margin-top:0}
 <div>
 <span class="pill"><i></i>Your Claude + GoHighLevel Account Builder</span>
 <h1>Your HighLevel account, planned and built with AI. <span>It starts here.</span></h1>
-<p class="sub">Inside: the interview that learns your business, a plan built around your bottleneck, the build in your HighLevel through the official connector, the hand-off to HighLevel's own AI, the playbook it follows, and three packs. <b>Copy it, paste it into Claude, ChatGPT or Gemini, and it goes to work.</b></p>
+<p class="sub">Inside: the interview that learns your business, a plan built around your bottleneck, the build in your HighLevel through the official connector, the hand-off to HighLevel's own AI, the playbook it follows, and three packs. <b>Download it, paste it into Claude, ChatGPT or Gemini, and it goes to work.</b></p>
 <div class="works"><span><i></i>Claude</span><span><i></i>ChatGPT</span><span><i></i>Gemini</span><span><i></i>Any niche</span></div>
 </div>
 
-<div class="promptcard" aria-label="The Claude + GoHighLevel Account Builder">
-<div class="pc-bar"><span class="dots"><i></i><i></i><i></i></span><span class="pc-name">claude-gohighlevel-account-builder-prompt.txt</span><span class="pc-tag">Plain text</span></div>
-<!-- ACCOUNT BUILDER TEXT: injected by build.sh from asset/MASTER-PROMPT.md; never edit the built copy -->
-<textarea class="promptbox" id="promptBox" readonly aria-label="The Claude + GoHighLevel Account Builder">AI ACCOUNT BUILDER by Smarter Flow. Version 1.5 (2026-10-07).
+<div class="hero-art">
+<div class="artwrap"><div class="art" id="artCanvas" role="img" aria-label="The Claude + GoHighLevel Account Builder, shown as a workflow: your business, interview, plan, build in HighLevel, hand-off to HighLevel's AI, ledger, one text file">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="wg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b9bff"/><stop offset="1" stop-color="#ff8fd2"/></linearGradient></defs></svg>
+  <div class="agrid"></div><div class="glow a"></div><div class="glow b"></div>
+  <div class="bar">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8fd2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7 7l4 9M17 7l-4 9"/></svg>
+    <div class="t">Claude + GoHighLevel Account Builder<small>Workflow: plan and build one HighLevel account</small></div>
+    <div class="sp"><span class="chip ok">Published</span><span class="vbadge">v1.5</span></div>
+  </div>
+  <svg class="wire" viewBox="0 0 560 520" aria-hidden="true">
+    <path class="live" d="M155 132 V158"/><path class="live" d="M155 220 V246"/><path class="live" d="M155 308 V334"/>
+    <path class="live" d="M282 277 C 293 277, 285 161, 296 161"/>
+    <path d="M423 192 V218"/><path d="M423 280 V306"/><path d="M423 368 V394"/>
+    <circle cx="155" cy="132" r="3.5"/><circle cx="155" cy="220" r="3.5"/><circle cx="155" cy="308" r="3.5"/>
+    <circle cx="282" cy="277" r="3.5"/><circle cx="296" cy="161" r="3.5"/>
+    <circle cx="423" cy="192" r="3.5"/><circle cx="423" cy="280" r="3.5"/><circle cx="423" cy="368" r="3.5"/>
+  </svg>
+  <div class="node trig" style="left:28px;top:70px">
+    <span class="ico alt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
+    <span class="tx"><b>Your business</b><small>Niche, offer, bottleneck</small></span>
+  </div>
+  <div class="node" style="left:28px;top:158px">
+    <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></span>
+    <span class="tx"><b>Interview</b><small>A few questions, or what you have</small></span>
+    <span class="chip ok">Done</span>
+  </div>
+  <div class="node" style="left:28px;top:246px">
+    <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
+    <span class="tx"><b>Plan</b><small>Built around your bottleneck</small></span>
+    <span class="chip ok">Done</span>
+  </div>
+  <div class="node pk" style="left:28px;top:334px">
+    <span class="lab">Three packs, when you need them</span>
+    <span class="chip">Pages</span><span class="chip">Cloud worker</span><span class="chip">SHOW IT</span>
+  </div>
+  <div class="node" style="left:296px;top:130px">
+    <span class="ico hl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l4 4-8 8H6v-4z"/><path d="M12 8l4 4"/></svg></span>
+    <span class="tx"><b>Build in HighLevel</b><small>Official connector, you approve it</small></span>
+    <span class="chip run">Running</span>
+  </div>
+  <div class="node" style="left:296px;top:218px">
+    <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span>
+    <span class="tx"><b>Hand-off to HighLevel's AI</b><small>Its workflows and funnels</small></span>
+    <span class="chip wait">Queued</span>
+  </div>
+  <div class="node" style="left:296px;top:306px">
+    <span class="ico ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 12h6M9 16h6M9 8h3"/></svg></span>
+    <span class="tx"><b>Ledger</b><small>Every change, in one list you keep</small></span>
+    <span class="chip wait">Queued</span>
+  </div>
+  <div class="node file" style="left:296px;top:394px">
+    <span class="ico ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></svg></span>
+    <span class="tx"><b>One text file, v1.5</b><small>Plain text, ready to download</small></span>
+  </div>
+  <span class="pname">Claude + GoHighLevel Account Builder</span>
+  <span class="wm">Smarter<b>Flow</b></span>
+</div></div>
+<button type="button" class="btn" id="copyBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></svg>Download the Account Builder</button>
+<p class="dlnote">Downloads the text file and copies it, ready to paste into Claude, ChatGPT or Gemini.</p>
+<div class="copymsg" id="copyMsg" role="status" aria-live="polite"></div>
+<!-- ACCOUNT BUILDER TEXT: injected by build.sh from asset/MASTER-PROMPT.md; never edit the built copy. Visually hidden: the download button and the clipboard carry it. -->
+<textarea class="promptbox vh" id="promptBox" readonly aria-label="The Claude + GoHighLevel Account Builder" tabindex="-1">AI ACCOUNT BUILDER by Smarter Flow. Version 1.5 (2026-10-07).
 
 You are my HighLevel setup assistant. I am a business owner, not a developer. Use plain words, one step at a time, short messages. Never ask me to paste a password, API key or token into this chat. If I paste one anyway, do not repeat it. Tell me to revoke or change it with the service that issued it, because deleting the message may not remove every copy. Pause until I confirm.
 
@@ -454,17 +562,13 @@ Give me: the bucket 1 list as exact specifications (name, type, options) I can c
 
 Begin now with START HERE.
 </textarea>
-<div class="pc-actions">
-  <button type="button" class="btn" id="copyBtn">Copy the Account Builder</button>
-  <a class="dl" id="dlLink" href="./claude-gohighlevel-account-builder-prompt.txt" download="claude-gohighlevel-account-builder-prompt.txt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></svg>Download as a text file</a>
-  <div class="copymsg" id="copyMsg" role="status" aria-live="polite"></div>
-</div>
+<a class="vh" id="dlLink" href="./claude-gohighlevel-account-builder-prompt.txt" download="claude-gohighlevel-account-builder-prompt.txt" tabindex="-1" aria-hidden="true">Download as a text file</a>
 </div>
 </section>
 
 <div class="howto-head"><h2>How to start</h2><p>Three steps. Nothing to install.</p></div>
 <ol class="howto">
-  <li><span class="n">1</span><span>Click <b>Copy the Account Builder</b>.<small>The big button in the window. Or download the text file.</small></span></li>
+  <li><span class="n">1</span><span>Click <b>Download the Account Builder</b>.<small>One click: the file downloads and the text is copied.</small></span></li>
   <li><span class="n">2</span><span>Paste it into a new chat.<small>Claude, ChatGPT or Gemini. Then press Enter.</small></span></li>
   <li><span class="n">3</span><span>Answer a few questions. You get your plan.<small>Or paste or upload what you already have (your website text, an offer doc, notes). Never paste a password or key into the chat.</small></span></li>
 </ol>
@@ -654,16 +758,16 @@ ev('aab_delivery_opened');
   });
 })();
 
-// The Account Builder box, copy and download. (ids and event names are fixed: the worker tests and analytics depend on them)
+// The Account Builder: one button downloads the file AND copies the text. (ids and event names are fixed: the worker tests and analytics depend on them)
 (function(){
   var box = document.getElementById('promptBox');
   var text = box.value.replace(/\r\n/g, '\n').trim() + '\n';
-  var btn = document.getElementById('copyBtn'), msg = document.getElementById('copyMsg');
+  var btn = document.getElementById('copyBtn'), msg = document.getElementById('copyMsg'), dl = document.getElementById('dlLink');
   function copied(){
-    btn.textContent = 'Copied. Now paste it into your AI';
+    btn.textContent = 'Downloaded. Now paste it into your AI';
     btn.classList.add('done');
     msg.className = 'copymsg';
-    msg.innerHTML = '<b>Copied.</b> Open a new chat, paste it and press Enter.';
+    msg.innerHTML = '<b>Downloaded and copied.</b> Open a new chat in Claude, ChatGPT or Gemini, paste it and press Enter.';
     msg.style.display = 'block';
     ev('aab_prompt_copied');
   }
@@ -672,18 +776,27 @@ ev('aab_delivery_opened');
     var ok = false;
     try { ok = document.execCommand('copy'); } catch(e){ ok = false; }
     if(ok){ copied(); return; }
+    btn.textContent = 'Downloaded. Open the file and copy it';
+    btn.classList.add('done');
     msg.className = 'copymsg warn';
-    msg.innerHTML = '<b>Your browser blocked the copy button.</b> The Account Builder is selected in the box above. Press Ctrl+C (Cmd+C on a Mac). On a phone, touch and hold the text, then Select all and Copy.';
+    msg.innerHTML = '<b>Downloaded.</b> The copy was blocked by your browser: open the downloaded file, select all and copy.';
     msg.style.display = 'block';
     ev('aab_prompt_copy_blocked');
   }
   btn.addEventListener('click', function(){
+    // 1. the download (the dlLink listener below logs aab_prompt_downloaded)
+    try { dl.click(); } catch(e){}
+    // 2. the copy
     try {
       if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(copied, fallback); return; }
     } catch(e){}
     fallback();
   });
-  document.getElementById('dlLink').addEventListener('click', function(){ ev('aab_prompt_downloaded'); });
+  dl.addEventListener('click', function(){ ev('aab_prompt_downloaded'); });
+  // the visual scales down with its column (560 x 520 at full size)
+  var art = document.getElementById('artCanvas'), wrap = art.parentNode;
+  function fit(){ var sc = Math.min(1, wrap.clientWidth / 560); art.style.transform = 'scale(' + sc + ')'; wrap.style.height = Math.round(520 * sc) + 'px'; }
+  fit(); window.addEventListener('resize', fit);
   Array.prototype.forEach.call(document.querySelectorAll('.packbtn'), function(b){
     b.addEventListener('click', function(){
       var t = document.getElementById(b.getAttribute('data-pack'));
