@@ -14,132 +14,135 @@
   --vio:#7c3aed; --ind:#4f46e5; --pk:#db2777; --pk-soft:#c4489f;
   --ink:#191627; --muted:#5f5a75; --muted2:#7d7793;
   --bg:#ffffff; --bg-soft:#faf8ff; --line:#eae6f6; --white:#ffffff;
-  --note-bg:#fff7ed; --note-line:#fed7aa; --note-ink:#7c2d12;
-  --ok-bg:#ecfdf5; --ok-ink:#065f46;
-  --dark:#191430; --dark-2:#2c2154; --on-dark:#d9d2f2; --on-dark-muted:#c9c2e4;
-  --code-bg:#14112a; --code-ink:#e9e5ff;
-  --off:#7d7793;
-  --ground:radial-gradient(1100px 680px at 74% -14%,#f3edff 0%,#ffffff 60%);
+  --ok-ink:#065f46;
+  --stage:linear-gradient(160deg,#191430,#221a45 68%,#2b1f56);
+  --on-dark:#d9d2f2; --on-dark-muted:#c9c2e4; --glass:rgba(255,255,255,.06); --glass-line:rgba(255,255,255,.11);
   --grad:linear-gradient(100deg,var(--ind),var(--vio) 60%,var(--pk-soft));
+  --grad-dark:linear-gradient(90deg,#8b9bff,#ff8fd2);
+  --live:#2fe39a;
   --head:'Sora',system-ui,sans-serif; --body:'Plus Jakarta Sans',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
-body{font-family:var(--body);color:var(--ink);background-color:var(--bg);background-image:var(--ground);background-attachment:fixed;line-height:1.6;font-size:17px;overflow-x:hidden}
-img,svg{max-width:100%;height:auto;display:block}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.55;font-size:17px;overflow-x:hidden}
+svg{display:block}
 a{color:var(--ind)}
-.wrap{max-width:880px;margin:0 auto;padding:0 16px}
-.narrow{max-width:640px}
-header.top{padding:18px 0}
-.wordmark{font-family:var(--head);font-weight:800;letter-spacing:-.03em;color:var(--ink);text-decoration:none;font-size:20px}
-.wordmark b{background:linear-gradient(100deg,var(--ind),var(--pk));-webkit-background-clip:text;background-clip:text;color:transparent}
-.pill{display:inline-block;background:var(--grad);color:var(--white);font-family:var(--head);font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:16px}
-h1{font-family:var(--head);font-weight:800;letter-spacing:-.03em;font-size:clamp(30px,8vw,50px);line-height:1.08;margin-bottom:16px}
-h2{font-family:var(--head);font-weight:800;letter-spacing:-.02em;font-size:clamp(23px,6vw,32px);line-height:1.15;margin-bottom:18px}
-h3{font-family:var(--head);font-weight:700;letter-spacing:-.02em;font-size:18px;line-height:1.3;margin-bottom:6px}
-.center{text-align:center}
-.sec{padding:44px 0}
-.sec.soft{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.lead{color:var(--muted);font-size:17px;margin-bottom:14px}
-.hero{padding:18px 0 40px}
-.hero .sub{font-size:17.5px;color:var(--muted);margin-bottom:20px;max-width:620px}
-.cpf{list-style:none;margin:0 0 22px;display:grid;gap:10px}
-.cpf li{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:16px}
-.cpf b{font-family:var(--head);color:var(--vio);margin-right:6px}
-.compat{background:var(--note-bg);border:1px solid var(--note-line);color:var(--note-ink);border-radius:14px;padding:12px 14px;font-size:15px;margin-bottom:16px}
-.btn{display:block;width:100%;background:var(--grad);color:var(--white);font-family:var(--head);font-weight:700;font-size:18px;border:0;border-radius:14px;padding:18px 20px;min-height:56px;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 10px 26px rgba(124,58,237,.24)}
-.btn.sm{display:inline-block;width:auto;font-size:14px;padding:10px 16px;min-height:0;border-radius:11px;box-shadow:none}
-.btn.off{background:var(--off);box-shadow:none;pointer-events:none;cursor:default}
-.btn.done{background:var(--ok-ink)}
-.under{display:block;margin-top:10px;font-size:14.5px;color:var(--muted);text-align:center}
-.btn-note{display:block;margin-top:6px;font-size:14px;color:var(--muted);text-align:center}
-.buckets svg{margin:0 auto}
-.bucket-keys{display:grid;gap:12px;margin-top:18px}
-.bucket-keys div{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px}
-.bucket-keys p{color:var(--muted);font-size:15.5px}
-.sample{background:var(--code-bg);color:var(--code-ink);border-radius:16px;padding:16px 14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere}
-.sample-label{display:inline-block;background:var(--note-bg);color:var(--note-ink);border:1px solid var(--note-line);border-radius:999px;font-size:12px;font-weight:700;padding:4px 10px;margin-bottom:10px}
-.get{list-style:none;max-width:640px}
-.get li{position:relative;padding:9px 0 9px 30px;font-size:16.5px;border-bottom:1px solid var(--line)}
-.get li::before{content:"\2713";position:absolute;left:2px;top:9px;color:var(--vio);font-weight:800}
-.price-box{max-width:520px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:22px;padding:28px 18px;text-align:center;box-shadow:0 18px 50px rgba(79,70,229,.10)}
-.price-box .now{font-family:var(--head);font-weight:800;font-size:60px;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
-.price-box .once{color:var(--muted);font-size:16px;margin:10px 0 6px;font-weight:600}
-.price-box .incl{color:var(--muted);font-size:14px;margin:0 0 18px;line-height:1.45}
-.price-box.paying{padding:24px 10px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+.preview-banner{background:var(--ink);color:var(--white);text-align:center;font-size:13px;font-weight:700;letter-spacing:.04em;padding:8px 16px}
+
+/* hero: dark stage */
+.stage{position:relative;background:var(--stage);color:var(--white);overflow:hidden}
+.stage::before{content:"";position:absolute;width:780px;height:780px;right:-220px;top:-320px;border-radius:50%;background:radial-gradient(closest-side,rgba(124,58,237,.55),rgba(124,58,237,0));pointer-events:none}
+.stage::after{content:"";position:absolute;width:620px;height:620px;left:-260px;bottom:-360px;border-radius:50%;background:radial-gradient(closest-side,rgba(196,72,159,.30),rgba(196,72,159,0));pointer-events:none}
+.stage .wrap{position:relative;z-index:1}
+header.top{padding:20px 0 6px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.wordmark{font-family:var(--head);font-weight:800;letter-spacing:-.03em;color:var(--white);text-decoration:none;font-size:21px}
+.wordmark b{background:linear-gradient(90deg,#8b7bff,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.byline{font-size:13px;color:var(--on-dark-muted);font-weight:600}
+.hero{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding:26px 0 40px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--glass-line);background:var(--glass);color:var(--on-dark);font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:7px 14px;margin-bottom:18px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 0 4px rgba(47,227,154,.18)}
+h1{font-family:var(--head);font-weight:800;letter-spacing:-.035em;font-size:clamp(34px,8.6vw,62px);line-height:1.04;margin-bottom:18px}
+h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:4px}
+.sub{font-size:clamp(17px,2.2vw,20px);color:var(--on-dark);max-width:560px;margin-bottom:14px;font-weight:500}
+.how{font-size:15px;color:var(--on-dark-muted);max-width:560px}
+.how b{color:var(--white);font-weight:700}
+
+/* offer card */
+.offer{background:rgba(255,255,255,.97);color:var(--ink);border-radius:24px;padding:26px 22px 22px;box-shadow:0 30px 80px rgba(8,4,30,.45),0 0 0 1px rgba(255,255,255,.4) inset}
+.offer .tag{font-family:var(--head);font-weight:700;font-size:13px;color:var(--vio);letter-spacing:.02em;margin-bottom:4px}
+.priceRow{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.now{font-family:var(--head);font-weight:800;font-size:64px;letter-spacing:-.04em;line-height:.9;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.once{color:var(--muted);font-size:14.5px;font-weight:600;line-height:1.35}
+.incl{list-style:none;display:grid;gap:8px;margin:0 0 16px}
+.incl li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;font-weight:600}
+.incl svg{flex:none;margin-top:3px}
+.needs{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+.needs b{color:var(--ink)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--grad);color:var(--white);font-family:var(--head);font-weight:700;font-size:19px;border:0;border-radius:14px;padding:18px 20px;min-height:60px;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 14px 30px rgba(124,58,237,.32);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 18px 36px rgba(124,58,237,.40)}
+.btn.sm{display:inline-flex;width:auto;font-size:14px;padding:10px 16px;min-height:0;border-radius:11px;box-shadow:none}
+.btn-note{display:block;margin-top:10px;font-size:13.5px;color:#4a4560;text-align:center}
+.offer.paying{padding:22px 10px}
 .pay{margin-top:4px;text-align:center}
 .pay-line{font-size:15px;font-weight:600;color:var(--ink);margin:6px 0 12px}
 .pay-slot{min-height:460px}
 .pay-slot.done{min-height:0}
 .pay-status{font-size:15px;color:var(--muted);padding:18px 8px}
 .pay-status.fallback{color:var(--ink);font-weight:600}
-.why{text-align:left;margin:22px auto 0;color:var(--muted);font-size:15.5px;max-width:560px}
-.why p{margin-bottom:10px}
-.faq{max-width:680px;margin:0 auto}
-.faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
-.faq summary{font-family:var(--head);font-weight:700;font-size:16px;cursor:pointer;list-style:none;color:var(--ink)}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";float:right;color:var(--vio);font-weight:800;margin-left:12px}
-.faq details[open] summary::after{content:"\2212"}
-.faq p{color:var(--muted);font-size:15.5px;margin-top:10px}
-footer{border-top:1px solid var(--line);padding:28px 16px 44px;text-align:center;color:var(--muted2);font-size:13.5px}
+
+/* steps */
+.steps{list-style:none;display:grid;gap:12px;padding:0 0 44px}
+.steps li{display:flex;gap:14px;align-items:center;background:var(--glass);border:1px solid var(--glass-line);border-radius:16px;padding:14px 16px;color:var(--white);font-weight:600;font-size:16px}
+.steps .n{flex:none;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--grad);font-family:var(--head);font-weight:800;font-size:15px}
+.steps small{display:block;color:var(--on-dark-muted);font-weight:500;font-size:13.5px}
+
+/* inside */
+.inside{padding:48px 0 34px;background:radial-gradient(900px 520px at 80% -10%,#f3edff 0%,#ffffff 62%)}
+.eyebrow{font-family:var(--head);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--vio);margin-bottom:8px}
+h2{font-family:var(--head);font-weight:800;letter-spacing:-.025em;font-size:clamp(26px,5.4vw,38px);line-height:1.12;margin-bottom:24px}
+.tiles{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.tile{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(79,70,229,.06)}
+.ico{width:44px;height:44px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 8px 18px rgba(124,58,237,.22)}
+.tile h3{font-family:var(--head);font-weight:700;letter-spacing:-.02em;font-size:18px;line-height:1.25;margin-bottom:5px}
+.tile p{color:var(--muted);font-size:15px;line-height:1.5}
+.plus{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;align-items:center}
+.plus span{font-size:13.5px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.plus em{width:100%;font-style:normal;font-size:13.5px;color:var(--muted);font-weight:700;margin-right:2px}
+
+footer{border-top:1px solid var(--line);padding:22px 16px 40px;text-align:center;color:var(--muted2);font-size:13px;line-height:1.6}
+footer p{margin-bottom:6px}
 footer a{color:var(--ind);text-decoration:none;font-weight:600}
-footer .notaff{margin-top:10px;font-weight:600;color:var(--muted)}
-.preview-banner{background:var(--ink);color:var(--white);text-align:center;font-size:13px;font-weight:700;letter-spacing:.04em;padding:8px 16px}
-/* delivery */
-.modes{display:grid;gap:14px;margin:8px 0 6px}
-.mode{display:block;width:100%;text-align:left;background:var(--white);border:2px solid var(--line);border-radius:18px;padding:18px 16px;cursor:pointer;font:inherit;color:inherit}
-.mode:hover{border-color:var(--vio)}
-.mode[aria-pressed="true"]{border-color:var(--vio);box-shadow:0 10px 26px rgba(124,58,237,.16)}
-.mode .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--vio);background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px;margin-bottom:8px}
-.mode p{color:var(--muted);font-size:15.5px}
-.promptbox{width:100%;height:220px;border:1px solid var(--line);border-radius:14px;padding:14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;line-height:1.5;background:var(--bg-soft);color:var(--ink);resize:vertical}
-.actions{display:grid;gap:10px;margin-top:12px}
-.dl{display:block;text-align:center;font-weight:700;color:var(--ind);padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--white);text-decoration:none}
-.copymsg{display:none;margin-top:10px;font-size:15px;background:var(--ok-bg);color:var(--ok-ink);border-radius:12px;padding:10px 12px}
-.copymsg.warn{background:var(--note-bg);color:var(--note-ink)}
-.steps{list-style:none;counter-reset:st;display:grid;gap:12px}
-.steps li{counter-increment:st;position:relative;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 14px 14px 58px;font-size:16px}
-.steps li::before{content:counter(st);position:absolute;left:14px;top:13px;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--grad);color:var(--white);font-family:var(--head);font-weight:800;font-size:15px}
-.stuck{font-family:var(--head);font-weight:700;font-size:19px;margin-bottom:6px}
-.callnote{color:var(--muted);font-size:14px;margin-top:6px}
-.version{color:var(--muted2);font-size:13px;text-align:center;margin-top:18px}
-@media (min-width:720px){
-  .sample{font-size:14px;padding:20px}
-  .wrap{padding:0 24px}
-  .cpf{grid-template-columns:repeat(3,1fr)}
-  .bucket-keys,.modes{grid-template-columns:repeat(3,1fr)}
-  .modes{grid-template-columns:1fr 1fr}
-  .actions{grid-template-columns:1fr 1fr}
-  .hero{padding:30px 0 56px}
-  .sec{padding:60px 0}
+footer .notaff{font-weight:600;color:var(--muted)}
+
+/* motion on load */
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.a{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.34s}.d5{animation-delay:.44s}
+@media (prefers-reduced-motion:reduce){.a{animation:none}.btn{transition:none}}
+
+@media (min-width:760px){
+  .wrap{padding:0 28px}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .plus em{width:auto}
 }
-
-.packbox{height:140px;margin-top:14px}
-
+@media (min-width:1024px){
+  header.top{padding:26px 0 0}
+  .hero{grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:56px;padding:40px 0 40px}
+  h1{font-size:58px}
+  .offer{padding:30px 28px 24px}
+  .tiles{grid-template-columns:repeat(3,1fr)}
+  .inside{padding:64px 0 44px}
+}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><a class="wordmark" href="https://www.gosmarterflow.com">Smarter<b>Flow</b></a></div></header>
+<div class="stage">
+<div class="wrap">
+<header class="top"><a class="wordmark" href="https://www.gosmarterflow.com">Smarter<b>Flow</b></a><span class="byline">AI Account Builder</span></header>
 
-<section class="hero"><div class="wrap narrow">
-<span class="pill">For HighLevel agency owners and users</span>
-<h1>Build your entire HighLevel account with AI.</h1>
-<p class="sub">One $1 prompt. Copy it, paste it into Claude, ChatGPT or Gemini, then answer a few questions or share what you already have. Multiple AIs check the plan, then you choose how to build: Claude builds what HighLevel's official connector allows, HighLevel's own AI builds your workflows and funnels from prompts it writes, and a short list stays with you.</p>
-<ul class="cpf">
-  <li><b>Create.</b> Claude creates the building blocks you approve, such as custom fields, tags, custom values and calendars.</li>
-  <li><b>Prepare.</b> It writes ready-to-paste prompts for HighLevel's own AI to build your workflows and pages.</li>
-  <li><b>Finish.</b> It lists what still needs a human, like phone numbers, domains and publishing.</li>
+<section class="hero">
+<div>
+<span class="pill a"><i></i>For HighLevel agencies and users</span>
+<h1 class="a d1">Your entire HighLevel account. <span>Built with AI, the right way.</span></h1>
+<p class="sub a d2">One prompt that sets your account up to work for years, not a month.</p>
+<p class="how a d3"><b>Claude</b> builds the foundation through HighLevel's official connector. <b>HighLevel's own AI</b> drafts your workflows and pages from prompts Claude writes. <b>You</b> finish a short list.</p>
+</div>
+
+<div id="get" class="a d3">
+<div class="offer price-box">
+<p class="tag">The AI Account Builder prompt</p>
+<div class="priceRow"><div class="now">$1</div><p class="once">One payment.<br>Instant access.</p></div>
+<ul class="incl">
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>The full prompt plus two path packs</li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Works with Claude, ChatGPT or Gemini</li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Email help and one free 30 minute call</li>
 </ul>
-<p class="compat"><b>Before you buy:</b> automatic creation requires Claude and access to your HighLevel sub-account (Claude Pro recommended). ChatGPT or Gemini users get Planning Mode, which does not write to HighLevel. Connected Build and the path packs are not yet tested end to end by us; what Claude can create depends on your account and HighLevel's connector.</p>
-<div id="get">
-<div class="price-box">
-<div class="now">$1</div>
-<p class="once">One payment. Instant access.</p>
-<p class="incl">One text prompt, two modes, plus email help and one free 30 minute call.</p>
-<a class="btn cta" href="#get">Get the prompt, $1 one-time</a>
-<span class="btn-note" id="ctaNote">Secure checkout on this page</span>
+<p class="needs"><b>Before you buy:</b> building inside HighLevel needs Claude (Pro recommended) connected to your sub-account. ChatGPT and Gemini get Planning Mode: the full plan and prompts, no changes in HighLevel.</p>
+<a class="btn cta" href="#get">Get the prompt for $1 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<span class="btn-note" id="ctaNote">No subscription to this asset. Your HighLevel and AI plans are separate.</span>
 <!-- Stripe Embedded Checkout. Shown only when STRIPE_PK is set; replaces the button above. -->
 <div class="pay" id="payBox" hidden>
 <p class="pay-line">$1.00 total. One payment. No subscription.</p>
@@ -148,143 +151,44 @@ footer .notaff{margin-top:10px;font-weight:600;color:var(--muted)}
 <div id="checkout"></div>
 </div>
 </div>
-<span class="under">Instant delivery. No subscription to this asset. Your HighLevel and AI subscriptions are separate.</span>
 </div>
 </div>
-</div></section>
+</section>
 
-<section class="sec soft buckets"><div class="wrap">
-<h2 class="center">Three buckets, always clear</h2>
-<svg viewBox="0 40 720 190" width="720" role="img" aria-label="Three buckets: Create, built by Claude through the official connection. Prepare, prompts for HighLevel's own AI. Finish, steps that need a human.">
-  <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
-  <linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#c4489f"/></linearGradient></defs>
-  <g font-family="Sora, system-ui, sans-serif" text-anchor="middle">
-    <path d="M30 60 L210 60 L190 200 Q188 212 176 212 L64 212 Q52 212 50 200 Z" fill="url(#g1)"/>
-    <text x="120" y="130" font-size="34" font-weight="800" fill="#ffffff">Create</text>
-    <text x="120" y="165" font-size="22" fill="#ece9ff">Claude</text>
-    <path d="M270 60 L450 60 L430 200 Q428 212 416 212 L304 212 Q292 212 290 200 Z" fill="url(#g2)"/>
-    <text x="360" y="130" font-size="34" font-weight="800" fill="#ffffff">Prepare</text>
-    <text x="360" y="165" font-size="22" fill="#fbe9ff">HighLevel AI</text>
-    <path d="M510 60 L690 60 L670 200 Q668 212 656 212 L544 212 Q532 212 530 200 Z" fill="#ffffff" stroke="#7c3aed" stroke-width="4"/>
-    <text x="600" y="130" font-size="34" font-weight="800" fill="#191627">Finish</text>
-    <text x="600" y="165" font-size="22" fill="#5f5a75">You</text>
-    <text x="240" y="148" font-size="34" font-weight="800" fill="#7c3aed">&#8250;</text>
-    <text x="480" y="148" font-size="34" font-weight="800" fill="#7c3aed">&#8250;</text>
-  </g>
-</svg>
-<div class="bucket-keys">
-  <div><h3>Create</h3><p>Objects Claude adds through HighLevel's official connection after you approve the list. Each one is marked created, configured or operational.</p></div>
-  <div><h3>Prepare</h3><p>Workflows and pages: you get ready prompts for HighLevel's own AI, such as Workflow AI, then you review the drafts and publish. Anything its AI cannot build comes with plain specs for a person.</p></div>
-  <div><h3>Finish</h3><p>A short checklist of what only a person can do: phone numbers, messaging registration, domains, payments and connected accounts.</p></div>
+<ol class="steps">
+<li class="a d4"><span class="n">1</span><span>Copy the prompt<small>One plain text prompt. Nothing to install.</small></span></li>
+<li class="a d4"><span class="n">2</span><span>Paste it into your AI<small>Claude, ChatGPT or Gemini.</small></span></li>
+<li class="a d5"><span class="n">3</span><span>Answer four questions<small>Or just paste your website.</small></span></li>
+</ol>
 </div>
-</div></section>
-
-<section class="sec"><div class="wrap narrow">
-<h2>A text prompt, not software or a snapshot</h2>
-<p class="lead">You get one plain text prompt that you paste into your own AI. Nothing to install, no snapshot to import, no login to us. It runs in your own AI chat (Claude for Connected Build), on your account, with your approval before any change.</p>
-</div></section>
-
-<section class="sec soft"><div class="wrap narrow">
-<h2>What the output looks like</h2>
-<span class="sample-label">Example only. Fictional business, shortened.</span>
-<pre class="sample">BLUEPRINT: Northside Plumbing Co. (example)
-Sub-account: Northside Plumbing TEST
-Prefix on every new item: NP
-
-CREATE (Claude, after you type "build")
-- Custom fields: NP Job Type,
-  NP Property Type, NP Preferred Time
-- Tags: np-new-lead, np-quote-sent,
-  np-booked
-- Custom values: NP Business Phone,
-  NP Service Area
-- Calendar: NP Free Estimate Visit
-
-PREPARE (paste into HighLevel's Workflow AI)
-"Build a workflow: when the tag np-new-lead
-is added, send the welcome email, wait one
-day, then ..."
-
-FINISH (needs a human)
-[ ] Buy or port the business phone number
-[ ] Messaging registration (A2P) for texts
-[ ] Review each workflow, then publish</pre>
-</div></section>
-
-<section class="sec"><div class="wrap">
-<h2>What is inside</h2>
-<ul class="get">
-  <li>The AI Account Builder prompt: it starts with a few questions, or with what you already have</li>
-  <li>Connected Build: Claude creates the building blocks you approve, then reads them back</li>
-  <li>Planning Mode: a full blueprint and specs with ChatGPT, Gemini or Claude, no account changes</li>
-  <li>Ready-to-paste prompts for HighLevel's own AI for workflows and pages</li>
-  <li>A human checklist for the steps only a person can do</li>
-  <li>Checkpoint and resume, so a long chat can continue in a new one, with a look-up before each create to avoid duplicates</li>
-  <li>Multiple AIs check the plan: a second AI reviews it before anything is built (a recommended step you run with a second AI of your choice)</li>
-  <li>Two path packs: your funnels can also live outside HighLevel and your workflows can also run in a cloud worker, so AI can update them later. The packs help you build them; you own and run them.</li>
-</ul>
-</div></section>
-
-<section class="sec soft"><div class="wrap">
-<h2>What you need</h2>
-<ul class="get">
-  <li>A HighLevel sub-account where you have admin access</li>
-  <li>For Connected Build: Claude (Pro recommended) on the web, desktop app or Claude Code</li>
-  <li>For Planning Mode: ChatGPT, Gemini or Claude</li>
-  <li>Optional: a second AI for the red team step</li>
-</ul>
-</div></section>
-
-<section class="sec"><div class="wrap narrow">
-<h2>Start in a blank sub-account</h2>
-<p class="lead">For your first run, use a new, empty sub-account. You see clearly what was created, with little risk of clashing with work you already have. When you trust the result, run it where you need it.</p>
-</div></section>
-
-<section class="sec soft"><div class="wrap narrow">
-<h2>How help works</h2>
-<p class="lead"><b>Reply to the delivery email.</b> Ask anything about using the prompt and we answer by email.</p>
-<p class="lead"><b>Or book one free 30 minute call.</b> One per buyer. The scope is help using the prompt, not building the account for you.</p>
-</div></section>
-
-<section class="sec"><div class="wrap">
-<div class="price-box">
-<div class="now">$1</div>
-<p class="once">One payment. Instant access.</p>
-<p class="incl">One text prompt, two modes, plus email help and one free 30 minute call.</p>
-<a class="btn cta" href="#get">Get the prompt, $1 one-time</a>
-<span class="under">Instant delivery. No subscription to this asset.</span>
 </div>
-<div class="why">
-<p><b>What happens after:</b> About two days after you buy, I email to ask for an honest review, good or bad, and you can reply there if something broke. About a week after you buy, I follow up once. Reviewing is optional. Help and the free call do not depend on a review.</p>
-<p>Not useful? Reply to my email and we refund the dollar.</p>
-</div>
-</div></section>
 
-<section class="sec soft"><div class="wrap">
-<h2 class="center">Questions</h2>
-<div class="faq">
-  <details><summary>Does it work with ChatGPT?</summary>
-  <p>Yes, in Planning Mode. ChatGPT, Gemini or Claude produce the blueprint, the specs, the prompts for HighLevel's own AI and the human checklist. Planning Mode makes no changes in HighLevel. Automatic creation needs Claude.</p></details>
-  <details><summary>Is this the official route?</summary>
-  <p>Yes. Connected Build uses HighLevel's official connection, which you sign in to. No captured session tokens, no internal app endpoints, and you never paste a password or key into the chat.</p></details>
-  <details><summary>Will it change my existing account?</summary>
-  <p>Only what you approve. It is built to confirm the exact sub-account, preview every change and wait for your go before it writes anything. The prompt tells Claude not to delete or overwrite anything and to skip a name that already exists. You check the change list and the read-back.</p></details>
-  <details><summary>What can it not build?</summary>
-  <p>Supported workflows, funnels, pages and forms are built by HighLevel's own AI from the prompts it writes (anything it cannot build gets plain specs), and you review them before publishing. SMS templates, snapshots, phone numbers, messaging registration, domains and DNS, payment connections and connected Google or social accounts stay with a human. It does not run your marketing or promise results.</p></details>
-  <details><summary>Do I need to know HighLevel?</summary>
-  <p>It is beginner friendly, and you review everything before it goes live. Knowing your way around a sub-account helps.</p></details>
+<section class="inside">
+<div class="wrap">
+<p class="eyebrow">What's inside</p>
+<h2>Built the way a HighLevel consultant would build it.</h2>
+<div class="tiles">
+<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10.5h6M9 13.5h4"/></svg></div><h3>It interviews you first</h3><p>Four consulting questions, or paste your website and what you already have.</p></div>
+<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>A build menu for your bottleneck</h3><p>It ranks what to build first by what is holding your business back.</p></div>
+<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>You choose where it lives</h3><p>Inside HighLevel, or funnels and workflows outside it with the two path packs.</p></div>
+<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="9.5" y="4" width="5" height="16" rx="1.5"/><rect x="16" y="4" width="5" height="16" rx="1.5"/></svg></div><h3>Clear on who builds what</h3><p>Claude creates, HighLevel's AI drafts, and you get a short human checklist.</p></div>
+<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7"/></svg></div><h3>A built-in playbook</h3><p>Lessons from the best sales and marketing books, applied to your funnels and follow-up.</p></div>
+<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Multiple AIs review the plan</h3><p>A second AI of your choice checks the plan before anything is built.</p></div>
 </div>
-</div></section>
+<div class="plus"><em>Also inside:</em><span>Read-back check</span><span>Resume in a new chat</span><span>Prompts for HighLevel's AI</span><span>Human checklist</span><span>Niche packs</span></div>
+</div>
+</section>
 
 <footer>
-&copy; Smarter Flow &middot; <a href="https://www.gosmarterflow.com">gosmarterflow.com</a> &middot; jonathan@gosmarterflow.com
+<p>Questions after you buy? Reply to the delivery email, or book one free 30 minute call on using the prompt.</p>
 <p class="notaff">AI Account Builder by Smarter Flow. Not affiliated with HighLevel or Anthropic.</p>
+<p>&copy; Smarter Flow &middot; <a href="https://www.gosmarterflow.com">gosmarterflow.com</a> &middot; jonathan@gosmarterflow.com</p>
 </footer>
 
 <script>
 // ===========================================================================
 // CONFIG (the wiring points). Everything below reads only these values.
-// NOT LIVE: STRIPE_PK is empty, so every buy button shows "Launching shortly".
+// NOT LIVE: STRIPE_PK is empty, so the buy button keeps its label and does nothing (no "Launching shortly" text on screen).
 // ---------------------------------------------------------------------------
 // STRIPE_PK    Stripe PUBLISHABLE key for this asset (pk_live_ / pk_test_), public by
 //              design. Set ONLY after the Stripe product, $1 price, the worker ASSETS line
@@ -312,16 +216,14 @@ function ev(name, props){
 ev('aab_landing_viewed');
 document.querySelectorAll('.cta').forEach(function(a){ a.addEventListener('click', function(){ ev('aab_buy_clicked'); }); });
 
-// NOT LIVE state, exactly as Module 1 before its checkout was live.
+// NOT LIVE state (STRIPE_PK empty). The visible label stays "Get the prompt for $1";
+// the old visible "Launching shortly" fallback is retired from the page (code-only marker).
+// The button goes nowhere: no navigation, no jump, the click is only logged.
 if(!CONFIG.STRIPE_PK){
   document.querySelectorAll('.cta').forEach(function(a){
-    a.textContent = 'Launching shortly';
-    a.classList.add('off');
-    a.removeAttribute('href');
-    a.setAttribute('aria-disabled','true');
+    a.setAttribute('href','#get');
+    a.addEventListener('click', function(e){ e.preventDefault(); });
   });
-  var n = document.getElementById('ctaNote');
-  if(n){ n.textContent = 'Checkout opens with the video. Come back from the video link.'; }
 }
 
 // LIVE-CHECKOUT:BEGIN (stripped from the preview build)
