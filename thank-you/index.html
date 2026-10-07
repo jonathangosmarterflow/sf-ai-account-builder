@@ -164,12 +164,12 @@ h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;b
 /* ---------- the Account Builder as a code window ---------- */
 .promptcard{position:relative;background:#14112a;color:var(--on-dark);border-radius:20px;box-shadow:0 34px 90px rgba(8,4,30,.55),0 0 0 1px rgba(255,255,255,.10) inset;overflow:hidden}
 .promptcard::before{content:"";position:absolute;inset:-1px;border-radius:21px;padding:1px;background:linear-gradient(135deg,rgba(139,155,255,.9),rgba(255,143,210,.6) 60%,rgba(255,255,255,0));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:2}
-.pc-bar{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
-.dots{display:flex;gap:6px}
+.pc-bar{display:flex;flex-wrap:nowrap;align-items:center;gap:10px;line-height:1;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
+.dots{display:flex;align-items:center;gap:6px;flex:none}
 .dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.18)}
 .dots i:first-child{background:#ff6b6b}.dots i:nth-child(2){background:#ffd166}.dots i:last-child{background:var(--live)}
-.pc-name{font-family:var(--mono);font-size:12.5px;color:var(--on-dark-muted);margin-left:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pc-tag{margin-left:auto;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--on-dark);border:1px solid var(--glass-line);background:var(--glass);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.pc-name{flex:1 1 auto;min-width:0;line-height:1.2;font-family:var(--mono);font-size:12.5px;color:var(--on-dark-muted);margin-left:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-tag{flex:none;line-height:1.2;margin-left:auto;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--on-dark);border:1px solid var(--glass-line);background:var(--glass);border-radius:999px;padding:4px 10px;white-space:nowrap}
 .promptcard textarea.promptbox{display:block;width:100%;height:340px;min-height:240px;border:0;border-radius:0;padding:18px 20px;background:transparent;color:#e9e5ff;font-family:var(--mono);font-size:13px;line-height:1.65;resize:vertical;outline:none}
 .promptcard textarea.promptbox:focus{box-shadow:0 0 0 2px rgba(139,155,255,.35) inset}
 .pc-actions{display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:16px 18px 18px;border-top:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03)}
@@ -177,8 +177,8 @@ h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;b
 .btn:hover{transform:translateY(-1px);box-shadow:0 18px 38px rgba(124,58,237,.42)}
 .btn.done{background:linear-gradient(100deg,#059669,#10b981 60%,#2fe39a);box-shadow:0 14px 32px rgba(16,185,129,.34)}
 .btn.done::before{content:"";width:18px;height:18px;flex:none;border-radius:50%;background:rgba(255,255,255,.22) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12.5l4.5 4.5L19 7.5'/></svg>") center/12px no-repeat}
-.pc-actions .dl{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 16px;border:1px solid var(--glass-line);background:var(--glass);border-radius:12px;color:var(--white);font-weight:700;font-size:15px;text-decoration:none;transition:background .15s ease}
-.pc-actions .dl:hover{background:rgba(255,255,255,.11)}
+.pc-actions .dl{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 16px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);border-radius:12px;color:#fff;font-weight:700;font-size:15px;text-decoration:none;transition:background .15s ease}
+.pc-actions .dl:hover{background:rgba(255,255,255,.18);color:#fff}
 .pc-actions .copymsg{margin:0;font-size:15px;background:rgba(47,227,154,.12);color:#c9ffe8;border:1px solid rgba(47,227,154,.3);border-radius:12px;padding:11px 14px;text-align:center}
 .pc-actions .copymsg b{color:var(--white)}
 .pc-actions .copymsg.warn{background:rgba(255,209,102,.12);color:#ffe9b3;border-color:rgba(255,209,102,.35)}
@@ -207,13 +207,16 @@ h2{font-family:var(--head);font-weight:800;letter-spacing:-.028em;font-size:clam
 .pack .promptcard{flex:1;display:flex;flex-direction:column;box-shadow:0 22px 56px rgba(25,20,48,.28),0 0 0 1px rgba(255,255,255,.08) inset}
 .pack .promptcard textarea.promptbox{flex:1;height:250px;min-height:180px;font-size:12.5px;padding:14px 16px}
 .pack .actions{margin:0;display:flex;flex-direction:column;align-items:center;gap:0}
-.pack .actions .btn{display:inline-flex;width:auto;min-width:0;max-width:100%;font-size:16px;padding:14px 24px;min-height:54px;border-radius:12px}
+.pack .actions{justify-content:flex-start}
+.pack .actions .btn.packbtn{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:auto;min-width:240px;max-width:min(100%,320px);margin:0 auto;background:var(--grad);font-size:16px;line-height:1.25;padding:14px 26px;min-height:72px;border-radius:12px;white-space:normal}
 
 /* later: the two mode cards */
 .modes{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin:4px 0 26px}
 .mode{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;width:100%;text-align:left;background:var(--white);border:2px solid var(--line);border-radius:20px;padding:24px 22px;cursor:pointer;font:inherit;color:inherit;box-shadow:0 10px 30px rgba(79,70,229,.06);transition:transform .2s ease,box-shadow .2s ease,border-color .15s ease}
 .mode:hover{border-color:var(--vio);transform:translateY(-2px);box-shadow:0 16px 36px rgba(79,70,229,.12)}
 .mode[aria-pressed="true"]{border-color:var(--vio);box-shadow:0 16px 40px rgba(124,58,237,.18)}
+.mode::after{content:"\002B\00A0 Show what happens next";display:block;margin-top:12px;font-family:var(--head);font-size:14px;font-weight:700;line-height:1.3;color:var(--vio)}
+.mode[aria-pressed="true"]::after{content:"\2713\00A0 Showing"}
 .mode .tag{display:inline-block;font-family:var(--head);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--vio);background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:4px 11px;margin-bottom:12px}
 .mode h3{font-family:var(--head);font-weight:700;letter-spacing:-.02em;font-size:21px;line-height:1.25;margin-bottom:8px}
 .mode p{color:var(--muted);font-size:15.5px;line-height:1.55}
@@ -232,7 +235,7 @@ h2{font-family:var(--head);font-weight:800;letter-spacing:-.028em;font-size:clam
 .help .callnote{color:var(--muted);font-size:14px;margin-top:14px}
 .help .version{color:var(--muted2);font-size:13px;margin-top:18px}
 
-footer{border-top:1px solid var(--line);padding:24px 16px 44px;text-align:center;color:var(--muted2);font-size:13px;line-height:1.65;background:var(--bg)}
+footer{border-top:1px solid var(--line);padding:24px 16px 44px;text-align:center;color:var(--muted);font-size:14px;line-height:1.65;background:var(--bg)}
 footer p{margin:0 0 6px}
 footer .notaff{font-weight:600;color:var(--muted);margin-top:0}
 
