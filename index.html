@@ -46,8 +46,8 @@ header.top{padding:22px 0 8px;display:flex;align-items:center;justify-content:sp
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 0 4px rgba(47,227,154,.18)}
 h1{font-family:var(--head);font-weight:800;letter-spacing:-.035em;font-size:clamp(36px,8.8vw,64px);line-height:1.02;margin-bottom:20px}
 h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:5px}
-.sub{font-family:var(--head);font-weight:700;letter-spacing:-.02em;font-size:clamp(20px,2.6vw,27px);color:var(--white);margin-bottom:14px}
-.how{font-size:15.5px;color:var(--on-dark-muted);max-width:560px;line-height:1.6}
+.sub{font-family:var(--head);font-weight:700;letter-spacing:-.02em;font-size:clamp(21px,2.8vw,29px);color:var(--white);margin-bottom:18px}
+.how{font-size:15.5px;color:#e6e1f7;max-width:560px;line-height:1.6}
 .how b{color:var(--white);font-weight:700}
 .works{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .works span{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--on-dark);border:1px solid var(--glass-line);background:var(--glass);border-radius:999px;padding:6px 12px}
@@ -58,13 +58,13 @@ h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;b
 .offer::before{content:"";position:absolute;inset:-1px;border-radius:25px;padding:1px;background:linear-gradient(135deg,rgba(139,155,255,.9),rgba(255,143,210,.6) 60%,rgba(255,255,255,0));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .offer .tag{font-family:var(--head);font-weight:700;font-size:12.5px;color:var(--vio);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
 .priceRow{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-.now{font-family:var(--head);font-weight:800;font-size:68px;letter-spacing:-.045em;line-height:.9;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.now{font-family:var(--head);font-weight:800;font-size:56px;letter-spacing:-.045em;line-height:.9;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .once{color:var(--muted);font-size:14.5px;font-weight:600;line-height:1.35}
 .once b{display:block;color:var(--ink);font-size:16px}
 .incl{list-style:none;display:grid;gap:9px;margin:0 0 16px}
 .incl li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;font-weight:600;line-height:1.4}
 .incl svg{flex:none;margin-top:2px}
-.needs{display:flex;gap:10px;align-items:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-size:13.5px;color:var(--muted);line-height:1.5;margin-bottom:14px}
+.needs{display:flex;gap:10px;align-items:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-size:13.5px;color:#3f3a55;line-height:1.55;margin-bottom:14px}
 .needs svg{flex:none;margin-top:2px}
 .needs b{color:var(--ink)}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--grad);color:var(--white);font-family:var(--head);font-weight:700;font-size:19px;border:0;border-radius:14px;padding:18px 20px;min-height:62px;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 14px 32px rgba(124,58,237,.34);transition:transform .15s ease,box-shadow .15s ease}
@@ -82,7 +82,7 @@ h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;b
 /* ---------- steps strip ---------- */
 .steps{list-style:none;display:grid;gap:12px;padding:0 0 46px;position:relative}
 .steps li{display:flex;gap:14px;align-items:center;background:var(--glass);border:1px solid var(--glass-line);border-radius:16px;padding:15px 16px;color:var(--white);font-weight:700;font-size:16px;backdrop-filter:blur(6px)}
-.steps .n{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:11px;background:var(--grad);font-family:var(--head);font-weight:800;font-size:15px;box-shadow:0 8px 18px rgba(124,58,237,.35)}
+.steps .n{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:11px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);color:var(--white);font-family:var(--head);font-weight:800;font-size:15px}
 .steps small{display:block;color:var(--on-dark-muted);font-weight:500;font-size:13.5px;margin-top:1px}
 
 /* ---------- what's inside ---------- */
@@ -174,7 +174,7 @@ html.still .caret,html.still .stage::before{animation:none!important}
 <ul class="incl">
 <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>The full prompt, plus two path packs for building outside HighLevel</li>
 <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Works with Claude, ChatGPT or Gemini</li>
-<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Email help and one free 30 minute call</li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Email help and an optional free 30 minute call</li>
 </ul>
 <p class="needs"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/></svg><span><b>Before you buy:</b> building inside HighLevel needs Claude (Pro recommended) connected to your sub-account. ChatGPT and Gemini get Planning Mode: the full plan and prompts, no changes in HighLevel.</span></p>
 <a class="btn cta" href="#get">Get the prompt for $1 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
