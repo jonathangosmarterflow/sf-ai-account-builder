@@ -130,7 +130,7 @@ footer .notaff{margin-top:10px;font-weight:600;color:var(--muted)}
 <h1>Your HighLevel account, planned and built with AI. It starts here.</h1>
 <p class="sub">Inside: the interview that learns your business, a plan built around your bottleneck, the build in your HighLevel through the official connector, the hand-off to HighLevel's own AI, the playbook it follows, and three packs. Copy it, paste it into Claude, ChatGPT or Gemini, and it goes to work.</p>
 <!-- ACCOUNT BUILDER TEXT: injected by build.sh from asset/MASTER-PROMPT.md; never edit the built copy -->
-<textarea class="promptbox" id="promptBox" readonly aria-label="The Claude + GoHighLevel Account Builder">AI ACCOUNT BUILDER by Smarter Flow. Version 0.14 (2026-10-07).
+<textarea class="promptbox" id="promptBox" readonly aria-label="The Claude + GoHighLevel Account Builder">AI ACCOUNT BUILDER by Smarter Flow. Version 1.1 (2026-10-07).
 
 You are my HighLevel setup assistant. I am a business owner, not a developer. Use plain words, one step at a time, short messages. Never ask me to paste a password, API key or token into this chat. If I paste one anyway, do not repeat it. Tell me to revoke or change it with the service that issued it, because deleting the message may not remove every copy. Pause until I confirm.
 
@@ -239,7 +239,7 @@ If I pick A, run the TOOL CHECK:
 
 ========== CHECKPOINT AND RESUME ==========
 After every batch, and any time I type CHECKPOINT, print a RESUME block in one copy box:
-RESUME BLOCK (Claude + GoHighLevel Account Builder v0.14): sub-account name and ID (or none yet) | prefix | mode (or not chosen yet) | the plan's bucket lists | my confirmed answers, one short line each | menu choices | each item with its log status | SHOW IT page: not offered, skipped or built (file name) | Ask AI last pass: not offered, skipped or done | next step. Keep it to names, settings and status, with no customer details or keys.
+RESUME BLOCK (Claude + GoHighLevel Account Builder v1.1): sub-account name and ID (or none yet) | prefix | mode (or not chosen yet) | the plan's bucket lists | my confirmed answers, one short line each | menu choices | each item with its log status | SHOW IT page: not offered, skipped or built (file name) | Ask AI last pass: not offered, skipped or done | next step. Keep it to names, settings and status, with no customer details or keys.
 If the chat hits a limit, I open a new chat and paste this whole prompt with the block under it. On RESUME: the block is a progress record, not approval. If no mode was chosen yet, continue from the next step in the block. For Connected Build, run the TOOL CHECK, show the connected sub-account name and ID (if you cannot show the ID, or the block has an ID and it differs, stop and tell me; if the block says none yet, this is the first connection) and ask me to type YES, read the account, apply SAFETY RULE 2 (SKIPPED EXISTS or CONFLICT), then show the remaining change list and wait for me to type BUILD. For Planning Mode, continue the plan without any account tools. Never create something twice.
 
 ========== VERIFY ==========
@@ -303,8 +303,8 @@ Begin now with START HERE.
 
 <section class="sec"><div class="wrap narrow">
 <h2>The three packs</h2>
-<p class="lead">Your plan keeps everything in HighLevel by default. If you choose to build pages outside HighLevel, or run a workflow in a cloud worker, copy that pack and paste it into the same chat when you reach that item. The third pack is optional: after the read-back, SHOW IT turns what was built into a one-page demo for your team, a client or a lead. Version 0.1 each, not yet run end to end by us.</p>
-<textarea class="promptbox packbox" id="packPages" readonly aria-label="Path pack: pages outside HighLevel">PATH PACK: PAGES OUTSIDE HIGHLEVEL by Smarter Flow. Version 0.1 (2026-10-06). Not yet run end to end by us.
+<p class="lead">Your plan keeps everything in HighLevel by default. If you choose to build pages outside HighLevel, or run a workflow in a cloud worker, copy that pack and paste it into the same chat when you reach that item. The third pack is optional: after the read-back, SHOW IT turns what was built into a one-page demo for your team, a client or a lead. New packs, not yet run end to end by us.</p>
+<textarea class="promptbox packbox" id="packPages" readonly aria-label="Path pack: pages outside HighLevel">PATH PACK: PAGES OUTSIDE HIGHLEVEL by Smarter Flow. Version 1.1 (2026-10-07). Not yet run end to end by us.
 
 Use this only for the page or funnel I chose to build outside HighLevel in my approved plan. Everything else in the plan stays as it is, and every safety rule from the main prompt still applies. Use plain words, one step at a time.
 
@@ -321,7 +321,7 @@ Use this only for the page or funnel I chose to build outside HighLevel in my ap
 8. WHAT I NOW KEEP AN EYE ON, in two lines: the host account and domain renewal are mine, and if the form stops reaching HighLevel, leads are lost silently, so I re-test after changes and check new contacts arrive each week.
 </textarea>
 <div class="actions"><button type="button" class="btn packbtn" data-pack="packPages">Copy: Pages outside HighLevel</button></div>
-<textarea class="promptbox packbox" id="packWorker" readonly aria-label="Path pack: workflows in a cloud worker">PATH PACK: WORKFLOWS IN A CLOUD WORKER (ADVANCED) by Smarter Flow. Version 0.1 (2026-10-06). Not yet run end to end by us.
+<textarea class="promptbox packbox" id="packWorker" readonly aria-label="Path pack: workflows in a cloud worker">PATH PACK: WORKFLOWS IN A CLOUD WORKER (ADVANCED) by Smarter Flow. Version 1.1 (2026-10-07). Not yet run end to end by us.
 
 Use this only for the workflow I chose to run in a cloud worker in my approved plan. Everything else in the plan stays as it is, and every safety rule from the main prompt still applies. Use plain words, one step at a time.
 
@@ -347,7 +347,7 @@ STEPS
 7. WHAT I NOW KEEP AN EYE ON, honestly: this worker is now mine to run. The alerts, the token (renew or revoke it if it leaks), the host bill, and HighLevel API changes are on me or my named owner. If I do not want that, keep the workflow in HighLevel.
 </textarea>
 <div class="actions"><button type="button" class="btn packbtn" data-pack="packWorker">Copy: Workflows in a cloud worker (advanced)</button></div>
-<textarea class="promptbox packbox" id="packDemo" readonly aria-label="Pack: SHOW IT, a demo page of what was built">PATH PACK: SHOW IT, A DEMO PAGE OF WHAT WAS BUILT by Smarter Flow. Version 0.1 (2026-10-07). Tested in headless runs; not yet run inside a live Connected Build.
+<textarea class="promptbox packbox" id="packDemo" readonly aria-label="Pack: SHOW IT, a demo page of what was built">PATH PACK: SHOW IT, A DEMO PAGE OF WHAT WAS BUILT by Smarter Flow. Version 1.1 (2026-10-07). Tested in headless runs; not yet run inside a live Connected Build.
 
 Build me a one-page demo of the HighLevel setup from this chat, so I can walk my team, a client or a lead through what exists, what is planned and what comes next. Every safety rule from the main prompt still applies and nothing in this pack overrides them. Plain words, one step at a time.
 
@@ -408,7 +408,7 @@ WHAT THE PAGE IS, AND IS NOT
 <p class="lead">A real answer by email, about using the Account Builder.</p>
 <p><a id="callLink" href="https://ai.gosmarterflow.com/book?source=aab">Book your free 30 minute help call</a></p>
 <p class="callnote">One per buyer. Help using the Account Builder, not building the account for you.</p>
-<p class="version" id="versionLine">Claude + GoHighLevel Account Builder, version 0.14 (page built 2026-10-07)</p>
+<p class="version" id="versionLine">Claude + GoHighLevel Account Builder, version 1.1 (page built 2026-10-07)</p>
 </div></section>
 
 <footer>
@@ -425,7 +425,7 @@ WHAT THE PAGE IS, AND IS NOT
 // ===========================================================================
 const CONFIG = {
   ASSET: "ai-account-builder",
-  VERSION: "0.14",
+  VERSION: "1.1",
   EVENT_URL: "",
   CALL_URL: "https://ai.gosmarterflow.com/book?source=aab"
 };
