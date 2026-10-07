@@ -14,56 +14,63 @@
   --vio:#7c3aed; --ind:#4f46e5; --pk:#db2777; --pk-soft:#c4489f;
   --ink:#191627; --muted:#5f5a75; --muted2:#7d7793;
   --bg:#ffffff; --bg-soft:#faf8ff; --line:#eae6f6; --white:#ffffff;
-  --ok-ink:#065f46;
   --stage:linear-gradient(160deg,#191430,#221a45 68%,#2b1f56);
-  --on-dark:#d9d2f2; --on-dark-muted:#c9c2e4; --glass:rgba(255,255,255,.06); --glass-line:rgba(255,255,255,.11);
+  --on-dark:#d9d2f2; --on-dark-muted:#c9c2e4; --glass:rgba(255,255,255,.06); --glass-line:rgba(255,255,255,.12);
   --grad:linear-gradient(100deg,var(--ind),var(--vio) 60%,var(--pk-soft));
   --grad-dark:linear-gradient(90deg,#8b9bff,#ff8fd2);
   --live:#2fe39a;
   --head:'Sora',system-ui,sans-serif; --body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.55;font-size:17px;overflow-x:hidden}
 svg{display:block}
 a{color:var(--ind)}
-.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
 .preview-banner{background:var(--ink);color:var(--white);text-align:center;font-size:13px;font-weight:700;letter-spacing:.04em;padding:8px 16px}
 
-/* hero: dark stage */
-.stage{position:relative;background:var(--stage);color:var(--white);overflow:hidden}
-.stage::before{content:"";position:absolute;width:780px;height:780px;right:-220px;top:-320px;border-radius:50%;background:radial-gradient(closest-side,rgba(124,58,237,.55),rgba(124,58,237,0));pointer-events:none}
-.stage::after{content:"";position:absolute;width:620px;height:620px;left:-260px;bottom:-360px;border-radius:50%;background:radial-gradient(closest-side,rgba(196,72,159,.30),rgba(196,72,159,0));pointer-events:none}
-.stage .wrap{position:relative;z-index:1}
-header.top{padding:20px 0 6px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* ---------- dark stage: hero + steps ---------- */
+.stage{position:relative;background:var(--stage);color:var(--white);overflow:hidden;isolation:isolate}
+.stage::before{content:"";position:absolute;width:860px;height:860px;right:-260px;top:-380px;border-radius:50%;background:radial-gradient(closest-side,rgba(124,58,237,.55),rgba(124,58,237,0));pointer-events:none;z-index:-1;animation:drift 14s ease-in-out infinite alternate}
+.stage::after{content:"";position:absolute;width:640px;height:640px;left:-280px;bottom:-380px;border-radius:50%;background:radial-gradient(closest-side,rgba(219,39,119,.30),rgba(219,39,119,0));pointer-events:none;z-index:-1}
+.grid{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.10) 1px,transparent 1px);background-size:22px 22px;pointer-events:none;z-index:-1;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 85%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 85%)}
+header.top{padding:22px 0 8px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .wordmark{font-family:var(--head);font-weight:800;letter-spacing:-.03em;color:var(--white);text-decoration:none;font-size:21px}
 .wordmark b{background:linear-gradient(90deg,#8b7bff,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
-.byline{font-size:13px;color:var(--on-dark-muted);font-weight:600}
-.hero{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding:26px 0 40px;align-items:center}
-.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--glass-line);background:var(--glass);color:var(--on-dark);font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:7px 14px;margin-bottom:18px}
-.pill i{width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 0 4px rgba(47,227,154,.18)}
-h1{font-family:var(--head);font-weight:800;letter-spacing:-.035em;font-size:clamp(34px,8.6vw,62px);line-height:1.04;margin-bottom:18px}
-h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:4px}
-.sub{font-size:clamp(17px,2.2vw,20px);color:var(--on-dark);max-width:560px;margin-bottom:14px;font-weight:500}
-.how{font-size:15px;color:var(--on-dark-muted);max-width:560px}
-.how b{color:var(--white);font-weight:700}
+.byline{font-size:13px;color:var(--on-dark-muted);font-weight:600;letter-spacing:.02em}
 
-/* offer card */
-.offer{background:rgba(255,255,255,.97);color:var(--ink);border-radius:24px;padding:26px 22px 22px;box-shadow:0 30px 80px rgba(8,4,30,.45),0 0 0 1px rgba(255,255,255,.4) inset}
-.offer .tag{font-family:var(--head);font-weight:700;font-size:13px;color:var(--vio);letter-spacing:.02em;margin-bottom:4px}
-.priceRow{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.now{font-family:var(--head);font-weight:800;font-size:64px;letter-spacing:-.04em;line-height:.9;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding:22px 0 36px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--glass-line);background:var(--glass);color:var(--on-dark);font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.07em;text-transform:uppercase;border-radius:999px;padding:7px 14px 7px 12px;margin-bottom:20px;backdrop-filter:blur(6px)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 0 4px rgba(47,227,154,.18)}
+h1{font-family:var(--head);font-weight:800;letter-spacing:-.035em;font-size:clamp(36px,8.8vw,64px);line-height:1.02;margin-bottom:20px}
+h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:5px}
+.sub{font-family:var(--head);font-weight:700;letter-spacing:-.02em;font-size:clamp(20px,2.6vw,27px);color:var(--white);margin-bottom:14px}
+.how{font-size:15.5px;color:var(--on-dark-muted);max-width:560px;line-height:1.6}
+.how b{color:var(--white);font-weight:700}
+.works{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.works span{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--on-dark);border:1px solid var(--glass-line);background:var(--glass);border-radius:999px;padding:6px 12px}
+.works span i{width:7px;height:7px;border-radius:50%;background:var(--grad-dark)}
+
+/* ---------- offer card ---------- */
+.offer{position:relative;background:rgba(255,255,255,.98);color:var(--ink);border-radius:24px;padding:26px 22px 22px;box-shadow:0 34px 90px rgba(8,4,30,.5),0 0 0 1px rgba(255,255,255,.5) inset}
+.offer::before{content:"";position:absolute;inset:-1px;border-radius:25px;padding:1px;background:linear-gradient(135deg,rgba(139,155,255,.9),rgba(255,143,210,.6) 60%,rgba(255,255,255,0));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.offer .tag{font-family:var(--head);font-weight:700;font-size:12.5px;color:var(--vio);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.priceRow{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.now{font-family:var(--head);font-weight:800;font-size:68px;letter-spacing:-.045em;line-height:.9;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .once{color:var(--muted);font-size:14.5px;font-weight:600;line-height:1.35}
-.incl{list-style:none;display:grid;gap:8px;margin:0 0 16px}
-.incl li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;font-weight:600}
-.incl svg{flex:none;margin-top:3px}
-.needs{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+.once b{display:block;color:var(--ink);font-size:16px}
+.incl{list-style:none;display:grid;gap:9px;margin:0 0 16px}
+.incl li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;font-weight:600;line-height:1.4}
+.incl svg{flex:none;margin-top:2px}
+.needs{display:flex;gap:10px;align-items:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-size:13.5px;color:var(--muted);line-height:1.5;margin-bottom:14px}
+.needs svg{flex:none;margin-top:2px}
 .needs b{color:var(--ink)}
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--grad);color:var(--white);font-family:var(--head);font-weight:700;font-size:19px;border:0;border-radius:14px;padding:18px 20px;min-height:60px;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 14px 30px rgba(124,58,237,.32);transition:transform .15s ease,box-shadow .15s ease}
-.btn:hover{transform:translateY(-1px);box-shadow:0 18px 36px rgba(124,58,237,.40)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--grad);color:var(--white);font-family:var(--head);font-weight:700;font-size:19px;border:0;border-radius:14px;padding:18px 20px;min-height:62px;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 14px 32px rgba(124,58,237,.34);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 18px 38px rgba(124,58,237,.42)}
 .btn.sm{display:inline-flex;width:auto;font-size:14px;padding:10px 16px;min-height:0;border-radius:11px;box-shadow:none}
-.btn-note{display:block;margin-top:10px;font-size:13.5px;color:#4a4560;text-align:center}
+.btn-note{display:block;margin-top:10px;font-size:13px;color:#4a4560;text-align:center}
 .offer.paying{padding:22px 10px}
 .pay{margin-top:4px;text-align:center}
 .pay-line{font-size:15px;font-weight:600;color:var(--ink);margin:6px 0 12px}
@@ -72,77 +79,106 @@ h1 span{display:block;background:var(--grad-dark);-webkit-background-clip:text;b
 .pay-status{font-size:15px;color:var(--muted);padding:18px 8px}
 .pay-status.fallback{color:var(--ink);font-weight:600}
 
-/* steps */
-.steps{list-style:none;display:grid;gap:12px;padding:0 0 44px}
-.steps li{display:flex;gap:14px;align-items:center;background:var(--glass);border:1px solid var(--glass-line);border-radius:16px;padding:14px 16px;color:var(--white);font-weight:600;font-size:16px}
-.steps .n{flex:none;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--grad);font-family:var(--head);font-weight:800;font-size:15px}
-.steps small{display:block;color:var(--on-dark-muted);font-weight:500;font-size:13.5px}
+/* ---------- steps strip ---------- */
+.steps{list-style:none;display:grid;gap:12px;padding:0 0 46px;position:relative}
+.steps li{display:flex;gap:14px;align-items:center;background:var(--glass);border:1px solid var(--glass-line);border-radius:16px;padding:15px 16px;color:var(--white);font-weight:700;font-size:16px;backdrop-filter:blur(6px)}
+.steps .n{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:11px;background:var(--grad);font-family:var(--head);font-weight:800;font-size:15px;box-shadow:0 8px 18px rgba(124,58,237,.35)}
+.steps small{display:block;color:var(--on-dark-muted);font-weight:500;font-size:13.5px;margin-top:1px}
 
-/* inside */
-.inside{padding:48px 0 34px;background:radial-gradient(900px 520px at 80% -10%,#f3edff 0%,#ffffff 62%)}
-.eyebrow{font-family:var(--head);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--vio);margin-bottom:8px}
-h2{font-family:var(--head);font-weight:800;letter-spacing:-.025em;font-size:clamp(26px,5.4vw,38px);line-height:1.12;margin-bottom:24px}
+/* ---------- what's inside ---------- */
+.inside{padding:56px 0 40px;background:radial-gradient(1100px 620px at 85% -10%,#f3edff 0%,#ffffff 60%)}
+.eyebrow{font-family:var(--head);font-weight:700;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--vio);margin-bottom:8px}
+h2{font-family:var(--head);font-weight:800;letter-spacing:-.028em;font-size:clamp(28px,5.6vw,40px);line-height:1.1;margin-bottom:10px;max-width:720px}
+.lead{color:var(--muted);font-size:17px;max-width:620px;margin-bottom:30px}
+.split{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;align-items:start}
+
+/* the prompt, as a tangible object */
+.promptcard{position:relative;background:var(--stage);color:var(--on-dark);border-radius:20px;box-shadow:0 30px 70px rgba(25,20,48,.35),0 0 0 1px rgba(255,255,255,.08) inset;overflow:hidden}
+.promptcard::after{content:"";position:absolute;width:420px;height:420px;right:-160px;bottom:-200px;border-radius:50%;background:radial-gradient(closest-side,rgba(124,58,237,.5),rgba(124,58,237,0));pointer-events:none}
+.pc-bar{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
+.dots{display:flex;gap:6px}
+.dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.18)}
+.dots i:first-child{background:#ff6b6b}.dots i:nth-child(2){background:#ffd166}.dots i:last-child{background:var(--live)}
+.pc-name{font-family:var(--mono);font-size:12.5px;color:var(--on-dark-muted);margin-left:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-copy{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:var(--grad);color:var(--white);font-family:var(--head);font-weight:700;font-size:12.5px;border-radius:9px;padding:7px 11px;white-space:nowrap;box-shadow:0 8px 18px rgba(124,58,237,.35)}
+.pc-body{position:relative;padding:18px 18px 8px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:var(--on-dark);height:380px;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 97%);mask-image:linear-gradient(to bottom,#000 55%,transparent 97%)}
+.pc-body p{margin-bottom:11px;white-space:pre-wrap;word-break:break-word}
+.pc-body .k{color:#ff8fd2;font-weight:700}
+.pc-body .h{color:#8b9bff;font-weight:700;letter-spacing:.02em}
+.pc-body .c{color:#8f87b3}
+.caret{display:inline-block;width:8px;height:14px;background:var(--grad-dark);vertical-align:-2px;margin-left:2px;animation:blink 1.1s steps(1) infinite}
+.pc-foot{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 16px;position:relative}
+.pc-foot span{font-family:var(--body);font-size:12px;font-weight:600;color:var(--on-dark);border:1px solid var(--glass-line);background:var(--glass);border-radius:999px;padding:5px 10px}
+
 .tiles{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
-.tile{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(79,70,229,.06)}
-.ico{width:44px;height:44px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 8px 18px rgba(124,58,237,.22)}
-.tile h3{font-family:var(--head);font-weight:700;letter-spacing:-.02em;font-size:18px;line-height:1.25;margin-bottom:5px}
-.tile p{color:var(--muted);font-size:15px;line-height:1.5}
-.plus{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;align-items:center}
-.plus span{font-size:13.5px;font-weight:600;color:var(--ink);background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
-.plus em{width:100%;font-style:normal;font-size:13.5px;color:var(--muted);font-weight:700;margin-right:2px}
+.tile{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(79,70,229,.06);transition:transform .2s ease,box-shadow .2s ease}
+.tile:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(79,70,229,.12)}
+.ico{width:42px;height:42px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 8px 18px rgba(124,58,237,.22)}
+.tile h3{font-family:var(--head);font-weight:700;letter-spacing:-.02em;font-size:17.5px;line-height:1.25;margin-bottom:5px}
+.tile p{color:var(--muted);font-size:14.5px;line-height:1.5}
 
-footer{border-top:1px solid var(--line);padding:22px 16px 40px;text-align:center;color:var(--muted2);font-size:13px;line-height:1.6}
+footer{border-top:1px solid var(--line);padding:24px 16px 44px;text-align:center;color:var(--muted2);font-size:13px;line-height:1.65}
 footer p{margin-bottom:6px}
 footer a{color:var(--ind);text-decoration:none;font-weight:600}
 footer .notaff{font-weight:600;color:var(--muted)}
 
-/* motion on load */
-@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.a{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
-.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.34s}.d5{animation-delay:.44s}
-@media (prefers-reduced-motion:reduce){.a{animation:none}.btn{transition:none}}
+/* ---------- motion ---------- */
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-60px,40px,0)}}
+.a{animation:up .75s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.36s}.d5{animation-delay:.46s}.d6{animation-delay:.56s}
+.r{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.r.in{opacity:1;transform:none}
+html.still .a,html.still .r{animation:none!important;opacity:1!important;transform:none!important;transition:none!important}
+html.still .caret,html.still .stage::before{animation:none!important}
+@media (prefers-reduced-motion:reduce){.a{animation:none}.r{opacity:1;transform:none;transition:none}.btn,.tile{transition:none}.caret{animation:none}.stage::before{animation:none}}
 
+@media (max-width:759px){.works{display:none}.how{margin-bottom:0}}
 @media (min-width:760px){
   .wrap{padding:0 28px}
   .steps{grid-template-columns:repeat(3,1fr)}
   .tiles{grid-template-columns:repeat(2,1fr)}
-  .plus em{width:auto}
 }
 @media (min-width:1024px){
   header.top{padding:26px 0 0}
-  .hero{grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:56px;padding:40px 0 40px}
-  h1{font-size:58px}
+  .hero{grid-template-columns:minmax(0,1.25fr) minmax(0,.95fr);gap:60px;padding:40px 0 40px}
+  h1{font-size:60px}
   .offer{padding:30px 28px 24px}
-  .tiles{grid-template-columns:repeat(3,1fr)}
-  .inside{padding:64px 0 44px}
+  .inside{padding:72px 0 48px}
+  .split{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px}
+  .promptcard{position:sticky;top:28px}
 }
 </style>
 </head>
 <body>
+<script>if(/[?&]still=1/.test(location.search)){document.documentElement.className+=' still';}</script>
 <div class="stage">
+<div class="grid"></div>
 <div class="wrap">
 <header class="top"><a class="wordmark" href="https://www.gosmarterflow.com">Smarter<b>Flow</b></a><span class="byline">AI Account Builder</span></header>
 
 <section class="hero">
 <div>
-<span class="pill a"><i></i>For HighLevel agencies and users</span>
+<span class="pill a"><i></i>The $1 prompt for HighLevel</span>
 <h1 class="a d1">Your entire HighLevel account. <span>Built with AI, the right way.</span></h1>
-<p class="sub a d2">One prompt that sets your account up to work for years, not a month.</p>
-<p class="how a d3"><b>Claude</b> builds the foundation through HighLevel's official connector. <b>HighLevel's own AI</b> drafts your workflows and pages from prompts Claude writes. <b>You</b> finish a short list.</p>
+<p class="sub a d2">Set up for years, not a month.</p>
+<p class="how a d3"><b>Claude</b> builds the foundation through HighLevel's official connector. <b>HighLevel's own AI</b> drafts your workflows and pages from prompts Claude writes. <b>You</b> finish a short list and publish.</p>
+<div class="works a d4"><span><i></i>Claude</span><span><i></i>ChatGPT</span><span><i></i>Gemini</span><span><i></i>Any niche</span></div>
 </div>
 
 <div id="get" class="a d3">
 <div class="offer price-box">
 <p class="tag">The AI Account Builder prompt</p>
-<div class="priceRow"><div class="now">$1</div><p class="once">One payment.<br>Instant access.</p></div>
+<div class="priceRow"><div class="now">$1</div><p class="once"><b>One payment.</b>Instant access. No subscription.</p></div>
 <ul class="incl">
-<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>The full prompt plus two path packs</li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>The full prompt, plus two path packs for building outside HighLevel</li>
 <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Works with Claude, ChatGPT or Gemini</li>
 <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Email help and one free 30 minute call</li>
 </ul>
-<p class="needs"><b>Before you buy:</b> building inside HighLevel needs Claude (Pro recommended) connected to your sub-account. ChatGPT and Gemini get Planning Mode: the full plan and prompts, no changes in HighLevel.</p>
+<p class="needs"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/></svg><span><b>Before you buy:</b> building inside HighLevel needs Claude (Pro recommended) connected to your sub-account. ChatGPT and Gemini get Planning Mode: the full plan and prompts, no changes in HighLevel.</span></p>
 <a class="btn cta" href="#get">Get the prompt for $1 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-<span class="btn-note" id="ctaNote">No subscription to this asset. Your HighLevel and AI plans are separate.</span>
+<span class="btn-note" id="ctaNote">Secure card checkout. Your HighLevel and AI plans are separate.</span>
 <!-- Stripe Embedded Checkout. Shown only when STRIPE_PK is set; replaces the button above. -->
 <div class="pay" id="payBox" hidden>
 <p class="pay-line">$1.00 total. One payment. No subscription.</p>
@@ -156,26 +192,45 @@ footer .notaff{font-weight:600;color:var(--muted)}
 </section>
 
 <ol class="steps">
-<li class="a d4"><span class="n">1</span><span>Copy the prompt<small>One plain text prompt. Nothing to install.</small></span></li>
-<li class="a d4"><span class="n">2</span><span>Paste it into your AI<small>Claude, ChatGPT or Gemini.</small></span></li>
-<li class="a d5"><span class="n">3</span><span>Answer four questions<small>Or just paste your website.</small></span></li>
+<li class="a d4"><span class="n">1</span><span>Copy the prompt<small>One plain text file. Nothing to install.</small></span></li>
+<li class="a d5"><span class="n">2</span><span>Paste it into your AI<small>Claude, ChatGPT or Gemini.</small></span></li>
+<li class="a d6"><span class="n">3</span><span>Answer four questions<small>Or paste your website and it fills them in.</small></span></li>
 </ol>
 </div>
 </div>
 
 <section class="inside">
 <div class="wrap">
-<p class="eyebrow">What's inside</p>
-<h2>Built the way a HighLevel consultant would build it.</h2>
-<div class="tiles">
-<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10.5h6M9 13.5h4"/></svg></div><h3>It interviews you first</h3><p>Four consulting questions, or paste your website and what you already have.</p></div>
-<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>A build menu for your bottleneck</h3><p>It ranks what to build first by what is holding your business back.</p></div>
-<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>You choose where it lives</h3><p>Inside HighLevel, or funnels and workflows outside it with the two path packs.</p></div>
-<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="9.5" y="4" width="5" height="16" rx="1.5"/><rect x="16" y="4" width="5" height="16" rx="1.5"/></svg></div><h3>Clear on who builds what</h3><p>Claude creates, HighLevel's AI drafts, and you get a short human checklist.</p></div>
-<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7"/></svg></div><h3>A built-in playbook</h3><p>Lessons from the best sales and marketing books, applied to your funnels and follow-up.</p></div>
-<div class="tile"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Multiple AIs review the plan</h3><p>A second AI of your choice checks the plan before anything is built.</p></div>
+<p class="eyebrow r">What's inside</p>
+<h2 class="r">Built the way a HighLevel consultant would build it.</h2>
+<p class="lead r">One prompt that interviews you, plans the account around your bottleneck, and builds in the right order.</p>
+<div class="split">
+
+<div class="promptcard r" aria-label="A preview of the prompt">
+<div class="pc-bar"><span class="dots"><i></i><i></i><i></i></span><span class="pc-name">ai-account-builder-prompt.txt</span><span class="pc-copy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy</span></div>
+<div class="pc-body">
+<p><span class="k">AI ACCOUNT BUILDER</span> by Smarter Flow. Prompt version 0.8.</p>
+<p>You are my HighLevel setup assistant. I am a business owner, not a developer. Use plain words, one step at a time, short messages. Never ask me to paste a password, API key or token into this chat.</p>
+<p><span class="h">========== START HERE ==========</span></p>
+<p>Say hello in one line, then offer the shortcut: answer a few questions, or paste or upload what you already have (your website text, an offer doc, notes, a niche pack) and I will fill in the answers and only ask what is missing.</p>
+<p><span class="h">========== BUILT-IN PLAYBOOK ==========</span></p>
+<p><span class="c">Apply these without being asked.</span> 1. Brief first: who it is for, their problem, the result they want, the one offer, the one next step. 2. One main offer and one path from first contact to paid. 3. Pipeline stages mirror the real sales conversation. 4. Configure before customizing. 5. Speed: a new lead hears back within minutes<span class="caret"></span></p>
+<p><span class="h">========== THE INTERVIEW ==========</span></p>
+<p>1. What does the business sell, to whom, and where? 2. What do you want HighLevel to fix or build first, and what is the biggest bottleneck right now? 3. How do new customers reach you, and what should happen in the first hour? 4. What are the steps from first contact to paid?</p>
 </div>
-<div class="plus"><em>Also inside:</em><span>Read-back check</span><span>Resume in a new chat</span><span>Prompts for HighLevel's AI</span><span>Human checklist</span><span>Niche packs</span></div>
+<div class="pc-foot"><span>Read-back check</span><span>Resume in a new chat</span><span>Prompts for HighLevel's AI</span><span>Human checklist</span><span>Niche packs</span></div>
+</div>
+
+<div class="tiles">
+<div class="tile r"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10.5h6M9 13.5h4"/></svg></div><h3>It interviews you first</h3><p>Four consulting questions, or paste your website and it fills in the answers.</p></div>
+<div class="tile r"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>A build menu, ranked by your bottleneck</h3><p>What to build first, decided by what is holding the business back.</p></div>
+<div class="tile r"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>You choose where it lives</h3><p>Inside HighLevel, or pages and workflows outside it with the two path packs.</p></div>
+<div class="tile r"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="9.5" y="4" width="5" height="16" rx="1.5"/><rect x="16" y="4" width="5" height="16" rx="1.5"/></svg></div><h3>Clear on who builds what</h3><p>Claude creates, HighLevel's AI drafts, and a short checklist stays with you.</p></div>
+<div class="tile r"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7"/></svg></div><h3>A built-in playbook</h3><p>Proven sales and marketing practice, applied to your pipeline, pages and follow-up.</p></div>
+<div class="tile r"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Multiple AIs review the plan</h3><p>A second AI of your choice checks the plan before anything is built.</p></div>
+</div>
+
+</div>
 </div>
 </section>
 
@@ -186,6 +241,18 @@ footer .notaff{font-weight:600;color:var(--muted)}
 </footer>
 
 <script>
+// reveal on scroll (the "What's inside" section), once
+(function(){
+  var els = document.querySelectorAll('.r');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  var i = 0;
+  els.forEach(function(e){ e.style.transitionDelay = (Math.min(i++, 8) * 60) + 'ms'; io.observe(e); });
+  setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); }, 2500);
+})();
+
 // ===========================================================================
 // CONFIG (the wiring points). Everything below reads only these values.
 // NOT LIVE: STRIPE_PK is empty, so the buy button keeps its label and does nothing (no "Launching shortly" text on screen).
